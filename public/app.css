@@ -1,0 +1,24 @@
+body{
+  background: url('/IMG_1639.JPG');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+h1{
+
+  font-size: 3em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  line-height: 26.3999996185303px;
+}
+.hero{
+  margin: 2em auto;
+  text-align: center;
+}
+.stormpath-logo{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
