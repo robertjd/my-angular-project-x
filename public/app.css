@@ -5,18 +5,16 @@ body{
   background-color: rgb(43,69,104);
 }
 .view{
-  opacity: 0;
+  opacity: 0; /* this is modified to 100 when we apply the fade in animation class */
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-repeat: no-repeat;
-  background-size: auto 100%;
-
+  background-size: cover;
   -webkit-animation-duration: 1.5s;
-  /*-webkit-animation-delay: .5s;*/
-  /*-webkit-animation-iteration-count: infinite;*/
+  -moz-animation-duration: 1.5s;
 }
 .main{
   background-image: url('/IMG_1639.JPG');
@@ -33,7 +31,6 @@ h1{
   font-style: normal;
   font-variant: normal;
   font-weight: 100;
-  line-height: 26.3999996185303px;
 }
 .hero{
   margin: 2em auto;
@@ -61,16 +58,19 @@ h1{
   border-radius: 100%;
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  -moz-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
 .spinner .bounce1 {
   -webkit-animation-delay: -0.32s;
+  -moz-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
 .spinner .bounce2 {
   -webkit-animation-delay: -0.16s;
+  -moz-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
 

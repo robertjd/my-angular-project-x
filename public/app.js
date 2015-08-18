@@ -5,7 +5,6 @@ angular.module('spExampleApp', [
   'stormpath'
 ])
 .config(['$routeProvider', function($routeProvider) {
-  console.log('config');
   $routeProvider.
     when('/secret', {
       templateUrl: 'secret.html',
@@ -19,37 +18,35 @@ angular.module('spExampleApp', [
       redirectTo: '/'
     });
 }])
-.run(['$user','$window','$rootScope',function($user,$window,$rootScope){
-  function fadeIn(){
-    setTimeout(function(){
-      var el = $window.$('.view');
-      console.log('fade in',el.length);
-      el.addClass('animated fadeIn');
-      // el.css('opacity','100');
-      $rootScope.$digest();
-    },100);
-  }
-  $rootScope.$on('$currentUser',fadeIn);
-  $user.get().finally(fadeIn);
+.service('helpers',['$window','$timeout',function($window,$timeout){
+  /*
+    A quick helper function, which shamelessly grabs jquery
+    from the window and applies an animation fade-in.  There
+    are better solutions, if you want to go the Angular Way (tm)
+   */
+  return {
+    fadeIn: function fadeIn(){
+      $timeout(function(){
+        $window.$('.view').addClass('animated fadeIn');
+      },100);
+    }
+  };
 }])
-.controller('MainCtrl',['$scope','$user','$window',function($scope,$user,$window){
-  console.log('MainCtrl');
-  $user.get().finally(function(){
-    setTimeout(function(){
-      console.log('the other fade in');
-      var el = $window.$('.view');
-      el.addClass('animated fadeIn');
-    },100);
-  });
+.controller('MainCtrl',['$user','helpers',function($user,helpers){
+  /*
+    For the main page, we want to show it as soon as we know the user
+    state, we don't care if the user is logged in or not.  We can used
+    the finally clause on the promise to achieve this.
+  */
+  $user.get().finally(helpers.fadeIn);
 }])
-.controller('SecretCtrl',['$scope','$user','$window',function($scope,$user,$window){
-  $user.get().then(function(){
-    setTimeout(function(){
-      console.log('the other fade in');
-      var el = $window.$('.view');
-      el.addClass('animated fadeIn');
-    },100);
-  }).catch(function(){
+.controller('SecretCtrl',['helpers','$user','$window',function(helpers,$user,$window){
+  /*
+    For our protected page, we only want to show the page if the user
+    is logged in. We achive this by using the then() clause.  If the user
+    is not logged in, we catch that and redirect them to the login page
+  */
+  $user.get().then(helpers.fadeIn).catch(function(){
     $window.location.replace('/login?nextUri='+encodeURIComponent('#/secret'));
   });
 }]);
