@@ -21,6 +21,9 @@ app.use(stormpath.init(app,{
     },
     register:{
       enabled: true
+    },
+    me:{
+      enabled: true
     }
   }
 }));

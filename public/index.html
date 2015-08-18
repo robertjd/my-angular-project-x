@@ -11,16 +11,22 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://bootswatch.com/readable/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/readable/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/app.css">
-
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/bower_components/stormpath-sdk-angularjs/dist/stormpath-sdk-angularjs.js"></script>
+    <script type="text/javascript" src="/app.js"></script>
   </head>
-  <body ng-app="dashboardAppApp">
-    <h1 class="hero">Hello, Angular Application</h1>
-
-    <center>
-      <a class="btn btn-primary btn-lg" href="/login">Login</a>
-    </center>
+  <body ng-app="spExampleApp">
+    <div ng-view></div>
+    <div if-user-state-unknown class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
     <img class="stormpath-logo" src="stormpath.png" />
   </body>
 </html>
