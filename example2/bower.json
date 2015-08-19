@@ -1,0 +1,24 @@
+{
+  "name": "my-angular-project-x",
+  "version": "0.0.0",
+  "authors": [
+    "Robert <robert@stormpath.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.4",
+    "stormpath-sdk-angularjs": "~0.5.1",
+    "angular": "~1.4.4",
+    "jquery": "~2.1.4",
+    "animate.css": "~3.4.0"
+  }
+}
