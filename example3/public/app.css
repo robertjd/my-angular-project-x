@@ -17,13 +17,13 @@ body{
   -moz-animation-duration: 1.5s;
 }
 .main{
-  background-image: url('/IMG_1639.JPG');
+  background-image: url('/images/IMG_1639.JPG');
 }
 .secret{
-  background-image: url('/IMG_1642.JPG');
+  background-image: url('/images/IMG_1642.JPG');
 }
 .login, .forgot, .reset, .register, .verify{
-  background-image: url('/IMG_1618.JPG');
+  background-image: url('/images/IMG_1618.JPG');
 }
 .login a, .forgot a, .reset a{
   color: #fff;

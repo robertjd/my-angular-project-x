@@ -22,7 +22,7 @@ app.use(stormpath.init(app,{
 app.use(express.static(path.join(__dirname, 'public')));
 
 // All undefined asset or api routes should return a 404
-app.route('/:url(api|auth|components|app|bower_components|assets)/*')
+app.route('/:url(api|auth|components|app|bower_components|assets|images)/*')
   .get(function(req,res){
     res.status(404).end();
   });
