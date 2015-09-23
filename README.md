@@ -9,3 +9,7 @@ page that requires login.
 ### Example 2
 
 This application uses Angular's routing system, with HTML 5 mode
+
+### Example 3
+
+This application uses UI Router, with HTML 5 mode
